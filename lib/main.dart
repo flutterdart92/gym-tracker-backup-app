@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_tracker_app/features/dashboard/presentation/pages/main_navigation_screen.dart';
+import 'package:gym_tracker_app/features/onboarding/views/introduction_screen.dart';
 import 'package:provider/provider.dart';
 import 'core/services/hive_service.dart';
 import 'features/diet/presentation/providers/diet_provider.dart';
@@ -28,7 +28,8 @@ class GymTrackerApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MainNavigationScreen(),
+        // home: const MainNavigationScreen(),
+        home: const IntroductionScreen(),
         // home: const DietScreen(), // Updated to display DietScreen
       ),
     );
