@@ -1,4 +1,4 @@
-name: gym_tracker_app
+name: gym_tracker_backup_app
 description: "A Flutter app for gym enthusiasts to track diet and workout."
 publish_to: 'none'
 version: 1.0.0+1

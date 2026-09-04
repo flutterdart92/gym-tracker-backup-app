@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.gym_tracker_app"
+    namespace = "com.example.gym_tracker_backup_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

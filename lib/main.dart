@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:gym_tracker_app/features/onboarding/views/introduction_screen.dart';
 import 'package:provider/provider.dart';
 import 'core/services/hive_service.dart';
+import 'features/dashboard/presentation/pages/main_navigation_screen.dart';
 import 'features/diet/presentation/providers/diet_provider.dart';
 import 'features/workout/presentation/providers/workout_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HiveService.init();
-  runApp(const GymTrackerApp());
+  runApp(const GymTrackerBackupApp());
 }
 
-class GymTrackerApp extends StatelessWidget {
-  const GymTrackerApp({super.key});
+class GymTrackerBackupApp extends StatelessWidget {
+  const GymTrackerBackupApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +22,13 @@ class GymTrackerApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => DietProvider()),
       ],
       child: MaterialApp(
-        title: 'Gym Tracker',
+        title: 'Gym Tracker Backup',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        // home: const MainNavigationScreen(),
-        home: const IntroductionScreen(),
-        // home: const DietScreen(), // Updated to display DietScreen
+        home: const MainNavigationScreen(),
       ),
     );
   }
