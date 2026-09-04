@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gym_tracker_backup_app/features/diet/data/models/meal_model.dart';
-import 'package:gym_tracker_backup_app/features/diet/data/services/diet_service.dart';
-import 'package:gym_tracker_backup_app/features/workout/data/models/exercise_model.dart';
-import 'package:gym_tracker_backup_app/features/workout/data/services/workout_service.dart';
+import 'package:gym_tracker_app_backup/features/diet/data/models/meal_model.dart';
+import 'package:gym_tracker_app_backup/features/diet/data/services/diet_service.dart';
+import 'package:gym_tracker_app_backup/features/workout/data/models/exercise_model.dart';
+import 'package:gym_tracker_app_backup/features/workout/data/services/workout_service.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../../../core/services/hive_service.dart';
 

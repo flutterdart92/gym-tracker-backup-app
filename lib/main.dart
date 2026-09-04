@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
+import 'package:gym_tracker_app_backup/features/dashboard/presentation/pages/main_navigation_screen.dart';
+>>>>>>> c8a587a ( update project from gym_tracker_app to gym_tracker_app_backup)
 import 'package:provider/provider.dart';
 import 'core/services/hive_service.dart';
 import 'features/dashboard/presentation/pages/main_navigation_screen.dart';
@@ -8,11 +12,11 @@ import 'features/workout/presentation/providers/workout_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HiveService.init();
-  runApp(const GymTrackerBackupApp());
+  runApp(const GymTrackerAppBackup());
 }
 
-class GymTrackerBackupApp extends StatelessWidget {
-  const GymTrackerBackupApp({super.key});
+class GymTrackerAppBackup extends StatelessWidget {
+  const GymTrackerAppBackup({super.key});
 
   @override
   Widget build(BuildContext context) {

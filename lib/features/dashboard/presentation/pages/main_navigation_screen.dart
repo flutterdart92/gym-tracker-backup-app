@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:gym_tracker_backup_app/features/diet/presentation/screens/diet_screen.dart';
-import 'package:gym_tracker_backup_app/features/workout/presentation/screens/workout_screen.dart';
+import 'package:gym_tracker_app_backup/features/diet/presentation/screens/diet_screen.dart';
+import 'package:gym_tracker_app_backup/features/workout/presentation/screens/workout_screen.dart';
 import '../screens/dashboard_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
