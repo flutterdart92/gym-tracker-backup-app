@@ -79,8 +79,13 @@ class _ShorebirdUpdateWrapperState extends State<ShorebirdUpdateWrapper> {
               actions: [
                 ElevatedButton(
                   onPressed: () async {
+                    // 1. Tell Android to queue a app restart intent
                     await Restart.restartApp();
+
+                    // 2. Wait 500ms for Android OS to receive the intent
                     await Future.delayed(const Duration(milliseconds: 500));
+
+                    // 3. Terminate process so Shorebird cold-starts with new patch
                     exit(0);
                   },
                   child: const Text('Restart App'),
