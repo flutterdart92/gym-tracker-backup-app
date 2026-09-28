@@ -9,6 +9,8 @@ import 'features/dashboard/presentation/pages/main_navigation_screen.dart';
 import 'features/diet/presentation/providers/diet_provider.dart';
 import 'features/workout/presentation/providers/workout_provider.dart';
 
+final shorebirdUpdater = ShorebirdUpdater();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HiveService.init();
@@ -49,8 +51,6 @@ class ShorebirdUpdateWrapper extends StatefulWidget {
 }
 
 class _ShorebirdUpdateWrapperState extends State<ShorebirdUpdateWrapper> {
-  final _shorebirdUpdater = ShorebirdUpdater();
-
   @override
   void initState() {
     super.initState();
@@ -61,12 +61,12 @@ class _ShorebirdUpdateWrapperState extends State<ShorebirdUpdateWrapper> {
 
   Future<void> _checkForUpdates() async {
     try {
-      if (!_shorebirdUpdater.isAvailable) return;
+      if (!shorebirdUpdater.isAvailable) return;
 
-      final updateStatus = await _shorebirdUpdater.checkForUpdate();
+      final status = await shorebirdUpdater.checkForUpdate();
 
-      if (updateStatus == UpdateStatus.outdated) {
-        await _shorebirdUpdater.update();
+      if (status == UpdateStatus.outdated) {
+        await shorebirdUpdater.update();
 
         if (mounted) {
           showDialog(
@@ -79,13 +79,8 @@ class _ShorebirdUpdateWrapperState extends State<ShorebirdUpdateWrapper> {
               actions: [
                 ElevatedButton(
                   onPressed: () async {
-                    // 1. Tell Android to queue a app restart intent
                     await Restart.restartApp();
-
-                    // 2. Wait 500ms for Android OS to receive the intent
                     await Future.delayed(const Duration(milliseconds: 500));
-
-                    // 3. Terminate process so Shorebird cold-starts with new patch
                     exit(0);
                   },
                   child: const Text('Restart App'),
@@ -96,7 +91,7 @@ class _ShorebirdUpdateWrapperState extends State<ShorebirdUpdateWrapper> {
         }
       }
     } catch (e) {
-      debugPrint("Shorebird silent update error: $e");
+      debugPrint("Shorebird update check error: $e");
     }
   }
 

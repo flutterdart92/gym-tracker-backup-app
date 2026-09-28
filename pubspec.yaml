@@ -2,13 +2,22 @@ name: gym_tracker_app_backup
 description: "A Flutter app for gym enthusiasts to track diet and workout."
 publish_to: 'none'
 version: 1.0.0+1
+# version: 1.0.0+2
+# version: 1.0.0+3
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
+  
 
 dependencies:
+  
+
   flutter:
     sdk: flutter
+
+  # shorebird_code_push: ^1.0.0
+  shorebird_code_push: ^2.0.7
+  restart_app: ^1.2.1
 
   # State Management
   provider: ^6.1.2
@@ -35,3 +44,4 @@ flutter:
 
   assets:
     - assets/images/
+    - shorebird.yaml
