@@ -1,0 +1,23 @@
+workflows:
+  android-firebase-distribution:
+    name: Android Beta to Firebase App Distribution
+    max_build_duration: 30
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+    scripts:
+      - name: Get dependencies
+        script: |
+          flutter pub get
+      - name: Build Android APK
+        script: |
+          flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+    publishing:
+      firebase:
+        firebase_service_account: $FIREBASE_SERVICE_ACCOUNT_KEY
+        android:
+          app_id: $FIREBASE_APP_ID
+          groups:
+            - testers
